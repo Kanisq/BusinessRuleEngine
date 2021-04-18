@@ -6,22 +6,29 @@ using System.Threading.Tasks;
 
 namespace BusinessRuleEngine.Rules
 {
-    public class PhysicalProduct : IPayment
+    public class Video : IPayment
     {
+       
+        public string  VideoName { get; set; }
+
+        public Video(string videoName)
+        {
+            VideoName = videoName;
+        }
+
+
         public bool IsRuleMatch(string paymentType)
         {
-            return paymentType.StartsWith("Physical", StringComparison.InvariantCultureIgnoreCase);
+            return paymentType.StartsWith("Video", StringComparison.InvariantCultureIgnoreCase);
         }
 
         public PaymentDetail MakePayment()
         {
             PaymentDetail paymentDetail = new PaymentDetail();
             paymentDetail.PackingSlip = Utility.GenerateSlipNumber();
-            paymentDetail.CommisionToAgent = Utility.CommisionToAgent();
+            paymentDetail.IsVideoAdded = Utility.IsVideoAdded(VideoName);
 
             return paymentDetail;
         }
-
-        
     }
 }

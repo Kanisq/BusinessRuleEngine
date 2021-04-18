@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BusinessRuleEngine.Rules
 {
-    public class PhysicalProduct : IPayment
+    public class Book : IPayment
     {
         public bool IsRuleMatch(string paymentType)
         {
-            return paymentType.StartsWith("Physical", StringComparison.InvariantCultureIgnoreCase);
+            return paymentType.StartsWith("Book", StringComparison.InvariantCultureIgnoreCase);
         }
 
         public PaymentDetail MakePayment()
@@ -18,10 +18,10 @@ namespace BusinessRuleEngine.Rules
             PaymentDetail paymentDetail = new PaymentDetail();
             paymentDetail.PackingSlip = Utility.GenerateSlipNumber();
             paymentDetail.CommisionToAgent = Utility.CommisionToAgent();
+            paymentDetail.DuplicatePackingSlip = paymentDetail.PackingSlip;
 
             return paymentDetail;
         }
-
-        
     }
 }
+
