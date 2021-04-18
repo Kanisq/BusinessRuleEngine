@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace BusinessRuleEngine
 {
-    public class Class1
+    public class Payment : IPayment
     {
         public string GetMessage()
         {
             return "Test Successful";
+        }
+
+        public void MakePayment()
+        {
+            throw new NotImplementedException();
         }
     }
 }

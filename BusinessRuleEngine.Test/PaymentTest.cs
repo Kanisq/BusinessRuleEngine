@@ -4,12 +4,12 @@ using System;
 namespace BusinessRuleEngine.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class PaymentTest
     {
         [TestMethod]
         public void TestMethod1()
         {
-            Class1 c = new Class1();
+            Payment c = new Payment();
             string message = c.GetMessage();
             Assert.AreEqual("Test Successful", message);
         }
