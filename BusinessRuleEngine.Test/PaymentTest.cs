@@ -34,7 +34,19 @@ namespace BusinessRuleEngine.Test
             Payment p = new Payment();
             this.paymentDetail= p.MakePayment(paymentType);
             Assert.IsTrue(!string.IsNullOrEmpty(this.paymentDetail.PackingSlip));
-            Assert.IsTrue(!string.IsNullOrEmpty(this.paymentDetail.DuplicatePackingSlip));
+            Assert.AreEqual(this.paymentDetail.DuplicatePackingSlip,this.paymentDetail.PackingSlip);
+            Assert.AreEqual(100,this.paymentDetail.CommisionToAgent);
+        }
+
+        [TestMethod]
+        public void WHEN_PAYMENTTYPE_IS_PHYSICAL()
+        {
+            string paymentType = "Physical Product";
+            Payment p = new Payment();
+            this.paymentDetail = p.MakePayment(paymentType);
+            Assert.IsTrue(!string.IsNullOrEmpty(this.paymentDetail.PackingSlip));
+            Assert.IsTrue(string.IsNullOrEmpty(this.paymentDetail.DuplicatePackingSlip));
+            Assert.AreEqual(100, this.paymentDetail.CommisionToAgent);
         }
     }
 }

@@ -27,6 +27,7 @@ namespace BusinessRuleEngine
             {
                 paymentDetail.PackingSlip = GenerateSlip();
                 paymentDetail.DuplicatePackingSlip = paymentDetail.PackingSlip;
+                paymentDetail.CommisionToAgent = CommisionToAgent();
             }
             if (paymentType == "Membership")
             {
