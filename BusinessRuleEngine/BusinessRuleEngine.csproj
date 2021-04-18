@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="IPayment.cs" />
     <Compile Include="Payment.cs" />
+    <Compile Include="PaymentDetail.cs" />
+    <Compile Include="Rules\PhysicalProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
