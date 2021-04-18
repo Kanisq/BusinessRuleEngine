@@ -13,5 +13,8 @@ namespace BusinessRuleEngine
         public int CommisionToAgent { get; set; }
         public bool IsNotified { get; set; }
         public bool IsVideoAdded { get; set; }
+        public string MembershipStatus { get; set; }
+        
+
     }
 }

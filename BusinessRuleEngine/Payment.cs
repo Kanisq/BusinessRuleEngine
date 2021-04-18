@@ -8,43 +8,43 @@ namespace BusinessRuleEngine
 {
     public class Payment 
     {
+        
         public string GetMessage()
         {
             return "Test Successful";
         }
 
-        public void MakePayment(string paymentType)
+        public PaymentDetail MakePayment(string paymentType)
         {
-            string message;
+            PaymentDetail paymentDetail = new PaymentDetail();    
             
-            string duplicateslip;
             if (paymentType == "Physical Product")
             {
-                message = GenerateSlip();
-                int commision = CommisionToAgent();
+                paymentDetail.PackingSlip = GenerateSlip();
+                paymentDetail.CommisionToAgent=CommisionToAgent();
             }
-            if (paymentType == "Physical Product" && paymentType=="Book")
+            if (paymentType=="Book")
             {
-                message = GenerateSlip();
-                duplicateslip = message;
+                paymentDetail.PackingSlip = GenerateSlip();
+                paymentDetail.DuplicatePackingSlip = paymentDetail.PackingSlip;
             }
             if (paymentType == "Membership")
             {
-                message = ActivateMembership();
-
-                NotifyMember(message);
+                paymentDetail.MembershipStatus = ActivateMembership();
+                paymentDetail.IsNotified = NotifyMember(paymentDetail.MembershipStatus);
             }
             if (paymentType == "Upgrade")
             {
-                message = UpgradeMembership();
-                NotifyMember(message);
+                paymentDetail.MembershipStatus = UpgradeMembership();
+                paymentDetail.IsNotified =NotifyMember(paymentDetail.MembershipStatus);
             }
-            if (paymentType == "video" && paymentType == "Learning to Ski,")
+            if (paymentType == "video")
             {
-                message = GenerateSlip();
-                message = "First Aid" + message;
+                paymentDetail.PackingSlip = GenerateSlip();
+                paymentDetail.IsVideoAdded=IsVideoAdded(paymentType);                
             }
 
+            return paymentDetail;
         }
 
         public string GenerateSlip()
@@ -63,9 +63,23 @@ namespace BusinessRuleEngine
             return "Membership Upgraded";
         }
 
-        public void NotifyMember(string message)
+        public bool NotifyMember(string message)
         {
-           // Member Notified;
+            if (message.Equals("Activate", StringComparison.InvariantCultureIgnoreCase) || message.Equals("Upgrade", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        public bool IsVideoAdded(string paymentType)
+        {
+            if (paymentType.Equals("Video", StringComparison.InvariantCultureIgnoreCase) )
+            {
+                return true;
+            }
+            return false;
         }
 
         public int CommisionToAgent()
