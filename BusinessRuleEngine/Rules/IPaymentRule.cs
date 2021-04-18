@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessRuleEngine
+namespace BusinessRuleEngine.Rules
 {
-    public interface IPayment
+    public interface IPaymentRule
     {
         PaymentDetail MakePayment();
         bool IsRuleMatch(string paymentType);

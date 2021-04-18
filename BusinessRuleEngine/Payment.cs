@@ -9,9 +9,9 @@ namespace BusinessRuleEngine
 {
     public class Payment
     {
-        private List<IPayment> lstPaymentRules;
+        private List<IPaymentRule> lstPaymentRules;
 
-        public Payment(List<IPayment> _lstPaymentRules)
+        public Payment(List<IPaymentRule> _lstPaymentRules)
         {
             lstPaymentRules = _lstPaymentRules;
 

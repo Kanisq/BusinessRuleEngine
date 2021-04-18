@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessRuleEngine.Rules
 {
-    public class Video : IPayment
+    public class Video : IPaymentRule
     {
        
         public string  VideoName { get; set; }

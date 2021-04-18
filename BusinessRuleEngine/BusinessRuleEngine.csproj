@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPayment.cs" />
+    <Compile Include="Rules\IPaymentRule.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PaymentDetail.cs" />
     <Compile Include="Rules\Book.cs" />

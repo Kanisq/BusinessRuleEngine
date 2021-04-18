@@ -9,12 +9,12 @@ namespace BusinessRuleEngine.Test
     public class PaymentTest
     {
         private PaymentDetail paymentDetail;
-        private List<IPayment> paymentRules;
+        private List<IPaymentRule> paymentRules;
         [TestInitialize]
         public void Initialize()
         {
             paymentDetail = new PaymentDetail();
-            paymentRules = new List<IPayment>();
+            paymentRules = new List<IPaymentRule>();
             
             paymentRules.Add(new PhysicalProduct());
             paymentRules.Add(new Book());
