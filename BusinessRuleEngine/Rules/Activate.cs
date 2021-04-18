@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessRuleEngine.Rules
 {
-    public class Membership : IPayment
+    public class Activate : IPayment
     {
         public bool IsRuleMatch(string paymentType)
         {

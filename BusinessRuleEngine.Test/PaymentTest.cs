@@ -18,7 +18,7 @@ namespace BusinessRuleEngine.Test
             
             paymentRules.Add(new PhysicalProduct());
             paymentRules.Add(new Book());
-            paymentRules.Add(new Membership());
+            paymentRules.Add(new Activate());
             paymentRules.Add(new Upgrade());
             paymentRules.Add(new Video("Learning to Ski,"));
 

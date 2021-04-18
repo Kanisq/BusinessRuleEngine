@@ -19,7 +19,7 @@ namespace BusinessRuleEngine
 
         public PaymentDetail MakePayment(string paymentType)
         {
-            return lstPaymentRules.First(x => x.IsRuleMatch(paymentType)).MakePayment();
+            return this.lstPaymentRules.First(x => x.IsRuleMatch(paymentType)).MakePayment();
         }
 
     }
