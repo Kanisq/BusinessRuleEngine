@@ -32,12 +32,12 @@ namespace BusinessRuleEngine
             if (paymentType == "Membership")
             {
                 paymentDetail.MembershipStatus = ActivateMembership();
-                paymentDetail.IsNotified = NotifyMember(paymentDetail.MembershipStatus);
+                paymentDetail.IsMemberNotified = NotifyMember(paymentDetail.MembershipStatus);
             }
             if (paymentType == "Upgrade")
             {
                 paymentDetail.MembershipStatus = UpgradeMembership();
-                paymentDetail.IsNotified =NotifyMember(paymentDetail.MembershipStatus);
+                paymentDetail.IsMemberNotified =NotifyMember(paymentDetail.MembershipStatus);
             }
             if (paymentType == "video")
             {
@@ -66,7 +66,7 @@ namespace BusinessRuleEngine
 
         public bool NotifyMember(string message)
         {
-            if (message.Equals("Activate", StringComparison.InvariantCultureIgnoreCase) || message.Equals("Upgrade", StringComparison.InvariantCultureIgnoreCase))
+            if (message.Equals("Membership Activated", StringComparison.InvariantCultureIgnoreCase) || message.Equals("Membership Upgraded", StringComparison.InvariantCultureIgnoreCase))
             {
                 return true;
             }
