@@ -7,24 +7,20 @@ using System.Threading.Tasks;
 
 namespace BusinessRuleEngine
 {
-    public class Payment 
+    public class Payment
     {
         private List<IPayment> lstPaymentRules;
 
         public Payment(List<IPayment> _lstPaymentRules)
         {
             lstPaymentRules = _lstPaymentRules;
-            
-        }
-       
-        public PaymentDetail MakePayment(string paymentType)
-        {
-         
-            return lstPaymentRules.First(x => x.IsRuleMatch(paymentType)).MakePayment();
-                        
+
         }
 
-       
-        
+        public PaymentDetail MakePayment(string paymentType)
+        {
+            return lstPaymentRules.First(x => x.IsRuleMatch(paymentType)).MakePayment();
+        }
+
     }
 }
