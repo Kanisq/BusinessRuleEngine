@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRuleEngine", "BusinessRuleEngine\BusinessRuleEngine.csproj", "{B9214777-DD2C-4C64-9CEA-EA09439EBDAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRuleEngine.Test", "BusinessRuleEngine.Test\BusinessRuleEngine.Test.csproj", "{98721C2C-C669-4627-B558-674AC9B7DAF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9214777-DD2C-4C64-9CEA-EA09439EBDAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9214777-DD2C-4C64-9CEA-EA09439EBDAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9214777-DD2C-4C64-9CEA-EA09439EBDAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9214777-DD2C-4C64-9CEA-EA09439EBDAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98721C2C-C669-4627-B558-674AC9B7DAF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98721C2C-C669-4627-B558-674AC9B7DAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98721C2C-C669-4627-B558-674AC9B7DAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98721C2C-C669-4627-B558-674AC9B7DAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12CB3148-C3A2-4C66-BB7D-CDE7A46B4B60}
+	EndGlobalSection
+EndGlobal
