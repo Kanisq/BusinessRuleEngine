@@ -11,21 +11,12 @@ namespace BusinessRuleEngine
     {
         private List<IPayment> lstPaymentRules;
 
-        public Payment()
+        public Payment(List<IPayment> _lstPaymentRules)
         {
-            lstPaymentRules = new List<IPayment>();
-            lstPaymentRules.Add(new PhysicalProduct());
-            lstPaymentRules.Add(new Book());
-            lstPaymentRules.Add(new Membership());
-            lstPaymentRules.Add(new Upgrade());
-            lstPaymentRules.Add(new Video("Learning to Ski,"));
+            lstPaymentRules = _lstPaymentRules;
+            
         }
-        
-        public string GetMessage()
-        {
-            return "Test Successful";
-        }
-
+       
         public PaymentDetail MakePayment(string paymentType)
         {
          

@@ -1,5 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using BusinessRuleEngine.Rules;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace BusinessRuleEngine.Test
 {
@@ -7,10 +9,19 @@ namespace BusinessRuleEngine.Test
     public class PaymentTest
     {
         private PaymentDetail paymentDetail;
+        private List<IPayment> paymentRules;
         [TestInitialize]
         public void Initialize()
         {
             paymentDetail = new PaymentDetail();
+            paymentRules = new List<IPayment>();
+            
+            paymentRules.Add(new PhysicalProduct());
+            paymentRules.Add(new Book());
+            paymentRules.Add(new Membership());
+            paymentRules.Add(new Upgrade());
+            paymentRules.Add(new Video("Learning to Ski,"));
+
         }
 
         [TestCleanup]
@@ -20,18 +31,10 @@ namespace BusinessRuleEngine.Test
         }
 
         [TestMethod]
-        public void TestMethod1()
-        {
-            Payment c = new Payment();
-            string message = c.GetMessage();
-            Assert.AreEqual("Test Successful", message);
-        }
-
-        [TestMethod]
         public void WHEN_PAYMENTTYPE_IS_BOOK()
         {
             string paymentType = "Book";
-            Payment p = new Payment();
+            Payment p = new Payment(this.paymentRules);
             this.paymentDetail= p.MakePayment(paymentType);
             Assert.IsTrue(!string.IsNullOrEmpty(this.paymentDetail.PackingSlip));
             Assert.AreEqual(this.paymentDetail.DuplicatePackingSlip,this.paymentDetail.PackingSlip);
@@ -42,7 +45,7 @@ namespace BusinessRuleEngine.Test
         public void WHEN_PAYMENTTYPE_IS_PHYSICAL()
         {
             string paymentType = "Physical Product";
-            Payment p = new Payment();
+            Payment p = new Payment(this.paymentRules);
             this.paymentDetail = p.MakePayment(paymentType);
             Assert.IsTrue(!string.IsNullOrEmpty(this.paymentDetail.PackingSlip));
             Assert.IsTrue(string.IsNullOrEmpty(this.paymentDetail.DuplicatePackingSlip));
@@ -53,7 +56,7 @@ namespace BusinessRuleEngine.Test
         public void WHEN_PAYMENTTYPE_IS_MEMBERSHIP_ACTIVATE()
         {
             string paymentType = "Membership";
-            Payment p = new Payment();
+            Payment p = new Payment(this.paymentRules);
             this.paymentDetail = p.MakePayment(paymentType);
             Assert.IsTrue(string.IsNullOrEmpty(this.paymentDetail.PackingSlip));
             Assert.IsTrue(string.IsNullOrEmpty(this.paymentDetail.DuplicatePackingSlip));
@@ -66,7 +69,7 @@ namespace BusinessRuleEngine.Test
         public void WHEN_PAYMENTTYPE_IS_MEMBERSHIP_UPGRADE()
         {
             string paymentType = "Upgrade";
-            Payment p = new Payment();
+            Payment p = new Payment(this.paymentRules);
             this.paymentDetail = p.MakePayment(paymentType);
             Assert.IsTrue(string.IsNullOrEmpty(this.paymentDetail.PackingSlip));
             Assert.IsTrue(string.IsNullOrEmpty(this.paymentDetail.DuplicatePackingSlip));
@@ -79,7 +82,7 @@ namespace BusinessRuleEngine.Test
         public void WHEN_PAYMENTTYPE_IS_VIDEO()
         {
             string paymentType = "video";
-            Payment p = new Payment();
+            Payment p = new Payment(this.paymentRules);
             this.paymentDetail = p.MakePayment(paymentType);
             Assert.IsTrue(!string.IsNullOrEmpty(this.paymentDetail.PackingSlip));
             Assert.IsTrue(string.IsNullOrEmpty(this.paymentDetail.DuplicatePackingSlip));
