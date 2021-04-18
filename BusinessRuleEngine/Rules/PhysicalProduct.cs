@@ -8,14 +8,20 @@ namespace BusinessRuleEngine
 {
     public class PhysicalProduct : IPayment
     {
-        public bool IsRuleMatch()
+        public bool IsRuleMatch(string paymentType)
         {
-            throw new NotImplementedException();
+            return paymentType.StartsWith("Physical", StringComparison.InvariantCultureIgnoreCase);
         }
 
-        public void MakePayment()
+        public PaymentDetail MakePayment()
         {
-            throw new NotImplementedException();
+            PaymentDetail paymentDetail = new PaymentDetail();
+            paymentDetail.PackingSlip = Utility.GenerateSlipNumber();
+            paymentDetail.CommisionToAgent = Utility.CommisionToAgent();
+
+            return paymentDetail;
         }
+
+        
     }
 }

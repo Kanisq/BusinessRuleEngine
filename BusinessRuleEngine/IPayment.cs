@@ -8,7 +8,7 @@ namespace BusinessRuleEngine
 {
     public interface IPayment
     {
-        void MakePayment();
-        bool IsRuleMatch();
+        PaymentDetail MakePayment();
+        bool IsRuleMatch(string paymentType);
     }
 }

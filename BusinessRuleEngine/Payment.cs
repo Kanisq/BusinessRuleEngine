@@ -8,6 +8,13 @@ namespace BusinessRuleEngine
 {
     public class Payment 
     {
+        private List<IPayment> lstPaymentRules;
+
+        public Payment()
+        {
+            lstPaymentRules = new List<IPayment>();
+            lstPaymentRules.Add(new PhysicalProduct());
+        }
         
         public string GetMessage()
         {
@@ -16,13 +23,12 @@ namespace BusinessRuleEngine
 
         public PaymentDetail MakePayment(string paymentType)
         {
-            PaymentDetail paymentDetail = new PaymentDetail();    
-            
-            if (paymentType == "Physical Product")
-            {
-                paymentDetail.PackingSlip = GenerateSlip();
-                paymentDetail.CommisionToAgent=CommisionToAgent();
-            }
+           
+
+            return lstPaymentRules.First(x => x.IsRuleMatch(paymentType)).MakePayment();
+
+            PaymentDetail paymentDetail = new PaymentDetail();
+
             if (paymentType=="Book")
             {
                 paymentDetail.PackingSlip = GenerateSlip();
